@@ -1,0 +1,22 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Change Password";
+}
+
+    <div>@Model.Message</div>
+
+    <form action="/Index" method="post">
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div>Please enter your new password</div>
+        <input name="Password" type="Password" value="@Model.Password" />
+
+        <div>Please confirm your new password</div>
+        <input name="ConfirmPassword" type="Password" value="@Model.ConfirmPassword" />
+
+        <br />
+        <button type="submit">Change Password</button>
+
+    </form>
